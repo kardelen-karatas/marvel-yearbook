@@ -4,7 +4,7 @@ import Pagination from "react-js-pagination";
 
 // internal modules
 import { marvelCharactersApi } from "./api/marvelApi";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const maxCharactersInPage = 10;
