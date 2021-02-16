@@ -9,8 +9,10 @@ import "./App.css";
 function App() {
   const maxCharactersInPage = 10;
 
+
   const [characters, setCharacters] = useState([]);
-  const [totalCharacters, setTotalCharacters] = useState(0)
+  const [totalCharacters, setTotalCharacters] = useState(0);
+  const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
@@ -23,11 +25,23 @@ function App() {
   }, [currentPage]);
 
   const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber)
-  } 
+    setCurrentPage(pageNumber);
+  };
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
 
   return (
     <div className="App">
+      <div className="searchbar">
+        <input
+          type="text"
+          placeholder="Marvel Character's Name"
+          value={name}
+          onChange={handleNameChange}
+        />
+      </div>
 
       <div className="pagination">
         <Pagination
@@ -48,7 +62,6 @@ function App() {
           );
         })}
       </div>
-
     </div>
   );
 }
