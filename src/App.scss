@@ -5,6 +5,12 @@ body {
     .App {
         margin: 40px 50px 0px 50px;
 
+        @media (max-width: 768px) {
+
+            margin: 40px 0px 0px 0px;
+
+        }
+
         .searchbar {
             margin: 0;
             display: relative;
