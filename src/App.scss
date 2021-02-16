@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    font-family: 'EarthsMightiest-A3wg';
 
     .App {
         margin: 40px 50px 0px 50px;
@@ -38,8 +39,56 @@ body {
 
         .pagination {
             display: flex;
-            justify-content: center;
-            list-style: none;
+            align-items: center;
+            margin: 10px auto;
+            border-top: solid .25px #e23636;
+            
+            
+            @media (max-width: 768px) {
+                margin: 10px;
+            }
+
+            ul {
+                margin: 0 0 rem(60px);
+                padding: 0;
+                font-size: 1.2em;
+                list-style: none;
+                border: none;
+
+                li {
+                    font-weight: bold;
+                    margin: 0 2px;
+                    padding: 0;
+                    display: inline-block;
+
+                    a {
+                        padding: 8px 16px;
+                        text-decoration: none;
+                        color: #e23636;
+                        margin: 15px;
+                        max-width: 100%;
+                        font-size: .83em;
+                        border-radius: 10%;
+
+                        &:hover,
+                        .active-a {
+                            color: white;
+                            background-color: #504a4a;
+                            border: .25px solid #504a4a;
+
+                        }
+
+        }
+
+                    @media (max-width: 768px) {
+                        a {
+                            padding: 0px;
+                        }
+                    }
+
+
+                }
+            }
 
         }
 
