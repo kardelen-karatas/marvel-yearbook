@@ -4,10 +4,12 @@ import Pagination from "react-js-pagination";
 
 // internal modules
 import { marvelCharactersApi } from "./api/marvelApi";
+
+// stylesheets
 import "./App.scss";
 
 function App() {
-  const maxCharactersInPage = 10;
+  const maxCharactersInPage = 8;
 
   const [characters, setCharacters] = useState([]);
   const [totalCharacters, setTotalCharacters] = useState(0);
@@ -47,6 +49,7 @@ function App() {
           value={name}
           onChange={handleNameChange}
         />
+        <img src="./search.svg"></img>
       </div>
 
       <div className="pagination">
@@ -64,7 +67,7 @@ function App() {
           return (
             <div className="card">
               <img src={el.thumbnail.path + "." + el.thumbnail.extension}></img>
-              <h5>{el.name}</h5>
+              <h5>{el.name.toUpperCase()}</h5>
             </div>
           );
         })}

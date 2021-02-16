@@ -4,6 +4,38 @@ body {
     .App {
         margin: 40px 50px 0px 50px;
 
+        .searchbar {
+            margin: 0;
+            display: relative;
+            border-bottom: solid .25px #e23636;
+            padding: 1.25px;
+
+            input {
+                display: block;
+                margin-left: 20px;
+                width: 100%;
+                height: 20px;
+                font-size: 1.5rem;
+                border-style: none;
+                outline: none;
+                color: #e23636;
+
+            }
+
+            ::placeholder {
+                color: #e23636;
+                opacity: .25;
+            }
+
+            img {
+                position: absolute;
+                height: 20px;
+                left: 50px;
+                top: 40px;
+            }
+        }
+
+
         .pagination {
             display: flex;
             justify-content: center;
