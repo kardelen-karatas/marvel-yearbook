@@ -33,6 +33,7 @@ function App() {
       .catch((error) => console.log(error));
   }, [currentPage, name]);
 
+
   const handlePageChange = (pageNumber) => {
     setLoading(true);
     setCurrentPage(pageNumber);
@@ -46,8 +47,8 @@ function App() {
     <div className="App">
       {loading ? (
         <div className="loading">
-          <h3>Loading</h3>
           <img src="./loading.gif" alt="loading"></img>
+          <h1>COMING SOON ... </h1>
         </div>
       ) : (
         <>
@@ -60,16 +61,6 @@ function App() {
             />
             <img src="./search.svg"></img>
           </div>
-          <div className="pagination">
-            <Pagination
-              activePage={currentPage}
-              itemsCountPerPage={maxCharactersInPage}
-              totalItemsCount={totalCharacters - maxCharactersInPage}
-              pageRangeDisplayed={5}
-              onChange={handlePageChange}
-            />
-          </div>
-
           <div className="cards">
             {characters.map((el) => {
               return (
@@ -81,6 +72,17 @@ function App() {
                 </div>
               );
             })}
+          </div>
+          <div className="pagination">
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={maxCharactersInPage}
+              totalItemsCount={totalCharacters - maxCharactersInPage}
+              pageRangeDisplayed={5}
+              onChange={handlePageChange}
+              activeLinkClass="active"
+              hideDisabled={true}
+            />
           </div>
         </>
       )}
