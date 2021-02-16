@@ -15,16 +15,20 @@ function App() {
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    marvelCharactersApi({
-      limit: maxCharactersInPage,
-      offset: currentPage * maxCharactersInPage,
-    })
+
+    let params = {limit: maxCharactersInPage};
+
+    name
+      ? ( params.name = name )
+      : (params.offset = currentPage * maxCharactersInPage);
+
+    marvelCharactersApi(params)
       .then((response) => {
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
       })
       .catch((error) => console.log(error));
-  }, [currentPage]);
+  }, [currentPage, name]);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
