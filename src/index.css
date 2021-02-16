@@ -1,1 +1,4 @@
-/* */
+@font-face {
+    font-family: 'EarthsMightiest-A3wg';
+    src: local('EarthsMightiest-A3wg'), url(./fonts/EarthsMightiest-A3wg.otf) format('opentype');
+  }
