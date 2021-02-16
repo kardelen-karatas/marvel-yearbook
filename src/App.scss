@@ -17,6 +17,11 @@ body {
             border-bottom: solid .25px #e23636;
             padding: 1.25px;
 
+            @media(max-width: 768px) {
+                margin: 0 50px;
+            }
+
+
             input {
                 display: block;
                 margin-left: 20px;
@@ -26,12 +31,14 @@ body {
                 border-style: none;
                 outline: none;
                 color: #e23636;
+                font-family: 'EarthsMightiest-A3wg';
 
             }
 
             ::placeholder {
                 color: #e23636;
                 opacity: .25;
+                font-family: 'EarthsMightiest-A3wg';
             }
 
             img {
@@ -48,8 +55,8 @@ body {
             align-items: center;
             margin: 10px auto;
             border-top: solid .25px #e23636;
-            
-            
+
+
             @media (max-width: 768px) {
                 margin: 10px;
             }
@@ -84,7 +91,7 @@ body {
 
                         }
 
-        }
+                    }
 
                     @media (max-width: 768px) {
                         a {
@@ -124,6 +131,17 @@ body {
 
         }
 
+        .loading {
+            text-align: center;
+
+            img {
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 80px;
+            }
+        }
 
     }
 }
