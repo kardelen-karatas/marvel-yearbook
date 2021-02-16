@@ -64,6 +64,7 @@ function App() {
           return (
             <div className="card">
               <img src={el.thumbnail.path + "." + el.thumbnail.extension}></img>
+              <h5>{el.name}</h5>
             </div>
           );
         })}
