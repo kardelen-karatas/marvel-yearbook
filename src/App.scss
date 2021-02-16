@@ -1,0 +1,41 @@
+body {
+    margin: 0px;
+
+    .App {
+        margin: 40px 50px 0px 50px;
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .card {
+                margin: 10px 10px 0px 10px;
+
+                img {
+                    height: 375px;
+                    width: 375px;
+                    display: block;
+                }
+
+                h5 {
+                    margin:0;
+                    padding: 5px;
+                    background-color: #504a4a;
+                    color: white;
+                    font-size: 1.25rem;                    
+                }
+            }
+
+        }
+
+
+    }
+}
