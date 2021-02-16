@@ -31,8 +31,7 @@ function App() {
         setLoading(false);
       })
       .catch((error) => console.log(error));
-  }, [currentPage, name]);
-
+  }, [loading, name]);
 
   const handlePageChange = (pageNumber) => {
     setLoading(true);
