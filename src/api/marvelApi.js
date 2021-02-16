@@ -16,12 +16,7 @@ export function marvelCharactersAPI(parameters) {
     (acc, [key, value]) => acc + `${key}=${value}&`,
     ""
   );
-
-  console.log(parameters)
-
   const url = `${base}${params}${auth}`;
-
-  console.log(url)
 
   return axios.get(url).then((response) => response.data);
 }
