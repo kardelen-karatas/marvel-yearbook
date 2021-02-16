@@ -9,14 +9,16 @@ import "./App.css";
 function App() {
   const maxCharactersInPage = 10;
 
-
   const [characters, setCharacters] = useState([]);
   const [totalCharacters, setTotalCharacters] = useState(0);
   const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
-    marvelCharactersApi(maxCharactersInPage, currentPage * maxCharactersInPage)
+    marvelCharactersApi({
+      limit: maxCharactersInPage,
+      offset: currentPage * maxCharactersInPage,
+    })
       .then((response) => {
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
