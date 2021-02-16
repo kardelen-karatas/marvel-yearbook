@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Pagination from "react-js-pagination";
 
 // internal modules
-import { marvelCharactersAPI as marvelCharactersApi } from "./api/marvelApi";
+import { marvelCharactersApi } from "./api/marvelApi";
 import "./App.css";
 
 function App() {

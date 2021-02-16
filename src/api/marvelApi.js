@@ -2,7 +2,7 @@ import axios from "axios";
 import md5 from "md5";
 require("dotenv").config({ path: "../.env" });
 
-export function marvelCharactersAPI(parameters) {
+export function marvelCharactersApi(parameters) {
   const timestamp = new Date().getTime();
   const hash = md5(
     timestamp +
