@@ -16,6 +16,7 @@ function App() {
   const [name, setName] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     let params = { limit: maxCharactersInPage };
@@ -30,7 +31,9 @@ function App() {
         setCharacters(response.data.results);
         setLoading(false);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError(true);
+      });
   }, [loading, name]);
 
   const handlePageChange = (pageNumber) => {
@@ -44,7 +47,9 @@ function App() {
 
   return (
     <div className="App">
-      {loading ? (
+      {error ? (
+        <h1>SOMETHING WENT WRONG. PLEASE TRY TO RELOAD YOUR PAGE!</h1>
+      ) : loading ? (
         <div className="loading">
           <img src="./loading.gif" alt="loading"></img>
           <h1>COMING SOON ... </h1>
