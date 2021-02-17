@@ -25,7 +25,7 @@ $ cd marvel-yearbook
 $ npm install
 ```
 
-**3.** Create `.env` file:
+**3.** Rename `.example.env` file to `.env` and enter your public and private key:
 ```txt
 REACT_APP_PRIVATEKEY = YOUR PRIVATEKEY
 REACT_APP_PUBLICKEY = YOUR PUBLICKEY
