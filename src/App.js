@@ -7,6 +7,7 @@ import { marvelCharactersApi } from "./api/marvelApi";
 
 // components
 import Card from "./components/Card";
+import Loading from "./components/Loading";
 
 // stylesheets
 import "./App.scss";
@@ -45,8 +46,6 @@ function App() {
   const handlePageChange = (pageNumber) => {
     setLoading(true);
     setCurrentPage(pageNumber);
-
-    console.log(currentPage);
   };
 
   const handleNameChange = (event) => {
@@ -58,10 +57,7 @@ function App() {
       {error ? (
         <h1>SOMETHING WENT WRONG. PLEASE TRY TO RELOAD YOUR PAGE!</h1>
       ) : loading ? (
-        <div className="loading">
-          <img src="./loading.gif" alt="loading"></img>
-          <h1>COMING SOON ... </h1>
-        </div>
+        <Loading/>
       ) : (
         <>
           <div className="searchbar">
