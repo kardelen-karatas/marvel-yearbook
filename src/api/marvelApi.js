@@ -12,10 +12,13 @@ export function marvelCharactersApi(parameters) {
   const base = "http://gateway.marvel.com/v1/public/characters?";
   const auth = `ts=${timestamp}&apikey=${process.env.REACT_APP_PUBLICKEY}&hash=${hash}`;
 
+  // create parameters string for api
+  // examp: 'limit=8&offset=24'
   const params = Object.entries(parameters).reduce(
     (acc, [key, value]) => acc + `${key}=${value}&`,
     ""
   );
+
   const url = `${base}${params}${auth}`;
 
   return axios.get(url).then((response) => response.data);

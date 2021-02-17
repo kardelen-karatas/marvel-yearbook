@@ -9,24 +9,26 @@ import { marvelCharactersApi } from "./api/marvelApi";
 import "./App.scss";
 
 function App() {
-  const maxCharactersInPage = 8;
-
-  const [characters, setCharacters] = useState([]);
-  const [totalCharacters, setTotalCharacters] = useState(0);
-  const [name, setName] = useState("");
+  const maxCharactersInPage = 8; // max number of marvel characters to display in a single request
+  const [characters, setCharacters] = useState([]); // list of marvel characters 
+  const [totalCharacters, setTotalCharacters] = useState(0); // total number of marvel characters in marvel api
+  const [name, setName] = useState(""); // searched name of marvel character
   const [currentPage, setCurrentPage] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false);
 
   useEffect(() => {
     let params = { limit: maxCharactersInPage };
 
+    // check if there is an search input for  
     name
       ? (params.nameStartsWith = name)
       : (params.offset = currentPage * maxCharactersInPage);
 
+    // call marvel api with given parameters
     marvelCharactersApi(params)
       .then((response) => {
+        
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
         setLoading(false);
