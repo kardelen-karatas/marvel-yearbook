@@ -13,14 +13,14 @@ function App() {
   const [characters, setCharacters] = useState([]); // list of marvel characters 
   const [totalCharacters, setTotalCharacters] = useState(0); // total number of marvel characters in marvel api
   const [name, setName] = useState(""); // searched name of marvel character
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(false);
 
   useEffect(() => {
     let params = { 
       limit: maxCharactersInPage,
-      offset: currentPage * maxCharactersInPage 
+      offset: (currentPage - 1)* maxCharactersInPage 
     };
 
     // check if there is a search input for the character's name
@@ -32,7 +32,7 @@ function App() {
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
         setLoading(false);
-        if(name) setCurrentPage(0)
+        if(name) setCurrentPage(1)
       })
       .catch((error) => {
         setError(true);
@@ -42,7 +42,9 @@ function App() {
 
   const handlePageChange = (pageNumber) => {
     setLoading(true);
-    setCurrentPage(pageNumber - 1);
+    setCurrentPage(pageNumber);
+
+    console.log(currentPage)
   };
 
   const handleNameChange = (event) => {
@@ -89,7 +91,6 @@ function App() {
               pageRangeDisplayed={5}
               onChange={handlePageChange}
               activeLinkClass="active"
-              hideDisabled={true}
             />
           </div>
         </>
