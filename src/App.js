@@ -32,6 +32,7 @@ function App() {
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
         setLoading(false);
+        if(name) setCurrentPage(0)
       })
       .catch((error) => {
         setError(true);
@@ -41,7 +42,7 @@ function App() {
 
   const handlePageChange = (pageNumber) => {
     setLoading(true);
-    setCurrentPage(pageNumber);
+    setCurrentPage(pageNumber - 1);
   };
 
   const handleNameChange = (event) => {
@@ -84,7 +85,7 @@ function App() {
             <Pagination
               activePage={currentPage}
               itemsCountPerPage={maxCharactersInPage}
-              totalItemsCount={totalCharacters - maxCharactersInPage}
+              totalItemsCount={totalCharacters}
               pageRangeDisplayed={5}
               onChange={handlePageChange}
               activeLinkClass="active"
