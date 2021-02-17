@@ -18,17 +18,17 @@ function App() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    let params = { limit: maxCharactersInPage };
+    let params = { 
+      limit: maxCharactersInPage,
+      offset: currentPage * maxCharactersInPage 
+    };
 
-    // check if there is an search input for  
-    name
-      ? (params.nameStartsWith = name)
-      : (params.offset = currentPage * maxCharactersInPage);
-
+    // check if there is a search input for the character's name
+    if(name) params.nameStartsWith = name
+     
     // call marvel api with given parameters
     marvelCharactersApi(params)
       .then((response) => {
-        
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
         setLoading(false);
@@ -37,6 +37,7 @@ function App() {
         setError(true);
       });
   }, [loading, name]);
+
 
   const handlePageChange = (pageNumber) => {
     setLoading(true);
