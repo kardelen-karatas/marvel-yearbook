@@ -5,46 +5,48 @@ import Pagination from "react-js-pagination";
 // internal modules
 import { marvelCharactersApi } from "./api/marvelApi";
 
+// components
+import Card from "./components/Card";
+
 // stylesheets
 import "./App.scss";
 
 function App() {
   const maxCharactersInPage = 8; // max number of marvel characters to display in a single request
-  const [characters, setCharacters] = useState([]); // list of marvel characters 
+  const [characters, setCharacters] = useState([]); // list of marvel characters
   const [totalCharacters, setTotalCharacters] = useState(0); // total number of marvel characters in marvel api
   const [name, setName] = useState(""); // searched name of marvel character
   const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    let params = { 
+    let params = {
       limit: maxCharactersInPage,
-      offset: (currentPage - 1)* maxCharactersInPage 
+      offset: (currentPage - 1) * maxCharactersInPage,
     };
 
     // check if there is a search input for the character's name
-    if(name) params.nameStartsWith = name
-     
+    if (name) params.nameStartsWith = name;
+
     // call marvel api with given parameters
     marvelCharactersApi(params)
       .then((response) => {
         setTotalCharacters(response.data.total);
         setCharacters(response.data.results);
         setLoading(false);
-        if(name) setCurrentPage(1)
+        if (name) setCurrentPage(1);
       })
       .catch((error) => {
         setError(true);
       });
   }, [loading, name]);
 
-
   const handlePageChange = (pageNumber) => {
     setLoading(true);
     setCurrentPage(pageNumber);
 
-    console.log(currentPage)
+    console.log(currentPage);
   };
 
   const handleNameChange = (event) => {
@@ -73,14 +75,7 @@ function App() {
           </div>
           <div className="cards">
             {characters.map((el) => {
-              return (
-                <div className="card">
-                  <img
-                    src={el.thumbnail.path + "." + el.thumbnail.extension}
-                  ></img>
-                  <h5>{el.name.toUpperCase()}</h5>
-                </div>
-              );
+              return <Card character={el} />;
             })}
           </div>
           <div className="pagination">
