@@ -21,7 +21,7 @@ function App() {
     let params = { limit: maxCharactersInPage };
 
     name
-      ? (params.name = name)
+      ? (params.nameStartsWith = name)
       : (params.offset = currentPage * maxCharactersInPage);
 
     marvelCharactersApi(params)
