@@ -7,7 +7,7 @@ import { marvelCharactersApi } from "./api/marvelApi";
 
 // components
 import Card from "./components/Card";
-import Loading from "./components/Loading";
+import Load from "./components/Load";
 
 // stylesheets
 import "./App.scss";
@@ -57,7 +57,7 @@ function App() {
       {error ? (
         <h1>SOMETHING WENT WRONG. PLEASE TRY TO RELOAD YOUR PAGE!</h1>
       ) : loading ? (
-        <Loading/>
+        <Load/>
       ) : (
         <>
           <div className="searchbar">

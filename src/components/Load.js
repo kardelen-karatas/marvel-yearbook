@@ -1,4 +1,4 @@
-const Loading = (props) => {
+const Load = (props) => {
   return (
     <div className="loading">
       <img src="./loading.gif" alt="loading"></img>
@@ -7,4 +7,4 @@ const Loading = (props) => {
   );
 };
 
-export default Loading;
+export default Load;
