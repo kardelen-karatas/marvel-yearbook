@@ -8,6 +8,7 @@ import { marvelCharactersApi } from "./api/marvelApi";
 // components
 import Card from "./components/Card";
 import Load from "./components/Load";
+import Searchbar from "./components/Searchbar"
 
 // stylesheets
 import "./App.scss";
@@ -48,10 +49,6 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
   return (
     <div className="App">
       {error ? (
@@ -60,15 +57,7 @@ function App() {
         <Load/>
       ) : (
         <>
-          <div className="searchbar">
-            <input
-              type="text"
-              placeholder="Marvel Character's Name"
-              value={name}
-              onChange={handleNameChange}
-            />
-            <img src="./search.svg"></img>
-          </div>
+          <Searchbar name={name} setName={setName}/>
           <div className="cards">
             {characters.map((el) => {
               return <Card character={el} />;
